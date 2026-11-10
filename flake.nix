@@ -27,7 +27,9 @@
           ];
 
           shellHook = ''
-            export CLASSPATH=".:${jogamp-file}:$CLASSPATH"
+            # JOGAMPPATH
+            export JOGAMPPATH=${jogamp-file}  # used by aliases.sh
+            export CLASSPATH=".:$JOGAMPPATH:$CLASSPATH"
 
             # Add libxxf86vm to linker path for dynamic loader
             export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath [ pkgs.libxxf86vm ]}:$LD_LIBRARY_PATH"
